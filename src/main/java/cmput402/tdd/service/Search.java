@@ -5,4 +5,6 @@ import java.util.HashMap;
 
 public interface Search {
 	public HashMap<String, ArrayList<Integer>> returnAll();
+		
+
 }

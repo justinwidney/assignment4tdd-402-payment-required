@@ -19,4 +19,3 @@ MinorGoal: Use Mockito.
 
 The Main Goal: The Development must follow Test-Driven-Development principles. 
 And finally, with Travis CI, we want to check the coverage of our test suite. 
-
