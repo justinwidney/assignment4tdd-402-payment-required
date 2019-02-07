@@ -21,9 +21,20 @@ public class Util {
 		return results;
 	}
 	
-public HashMap<String, Integer>  findTopScorer(Search search){
+	public String findTopScorer(Search search){
+			
+		String results= new String();
+		HashMap<String, ArrayList<Integer>> list = search.returnAll();
+		int highScore = 0;
 		
-		return null;
+		for(String name : list.keySet()) {
+			if (highScore < list.get(name).get(1)){
+				highScore = list.get(name).get(1);
+				results = name;
+			}
+		}
+		
+		return results;
 	}
 	
 }
