@@ -32,8 +32,9 @@
     	<version>1.3</version>
     </dependency>
   </dependencies>
-  
-  <build>
+
+<build>
+
 	<sourceDirectory>src/main/java</sourceDirectory>
 	<plugins>
 	  <plugin>
@@ -59,4 +60,5 @@
 	</plugin>
 		</plugins>
 </build>
+
 </project>
