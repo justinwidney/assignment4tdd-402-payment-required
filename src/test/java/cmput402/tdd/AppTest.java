@@ -42,58 +42,5 @@ public class AppTest
     	
     	assert(2==2);
     }
-    public void testCountAverageScore() {
-    	Search mockSearch= mock(Search.class);
-    	HashMap<String, ArrayList<Integer>> fakeList
-    						=new HashMap <String, ArrayList<Integer>>();
-    	ArrayList<Integer> values=new ArrayList<Integer>();
-    	values.add(100);//number of matches
-    	values.add(200);//number of goals
-    	fakeList.put("Messi", values);
-    
-    	values=new ArrayList<Integer>();
-    	values.add(90);//number of matches
-    	values.add(135);//number of goals
-    	fakeList.put("Ronaldo", values);
-    	
-    	values=new ArrayList<Integer>();
-    	values.add(50);//number of matches
-    	values.add(100);//number of goals
-    	fakeList.put("Neymar", values);
-    	when(mockSearch.returnAll()).thenReturn(fakeList);
-    	
-    	 HashMap<String, Float> result=util.countAverageScore(mockSearch);
-    	 
-    	 assert(2==result.get("Messi"));
-    	 assert(1.5==result.get("Ronaldo"));
-    	 assert(2==result.get("Neymar"));
-    	 verify(mockSearch).returnAll();
-    }
-    
-    public void testfindTopScorer() {
-    	Search mockSearch= mock(Search.class);
-    	HashMap<String, ArrayList<Integer>> fakeList
-    						=new HashMap <String, ArrayList<Integer>>();
-    	ArrayList<Integer> values=new ArrayList<Integer>();
-    	values.add(100);//number of matches
-    	values.add(200);//number of goals
-    	fakeList.put("Messi", values);
-    
-    	values=new ArrayList<Integer>();
-    	values.add(90);//number of matches
-    	values.add(135);//number of goals
-    	fakeList.put("Ronaldo", values);
-    	
-    	values=new ArrayList<Integer>();
-    	values.add(50);//number of matches
-    	values.add(100);//number of goals
-    	fakeList.put("Neymar", values);
-    	when(mockSearch.returnAll()).thenReturn(fakeList);
-    	
-    	 String result= util.findTopScorer(mockSearch);
-    	 
-    	 assert("Messi"==result);
-    	 verify(mockSearch).returnAll();
-    }
     
 }
