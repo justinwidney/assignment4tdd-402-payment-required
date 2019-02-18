@@ -24,8 +24,4 @@ public class UserTest {
         user.setCurrentGame(mock);
         assertEquals(user.getCurrentGame(), mock);
     }
-
-
-
-
 }
