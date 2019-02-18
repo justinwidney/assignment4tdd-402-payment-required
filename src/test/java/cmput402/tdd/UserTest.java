@@ -3,7 +3,7 @@ package cmput402.tdd;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
-import junit.framework.TestCase;
+import cmput402.tdd.game.Game;
 import org.junit.Test;
 
 public class UserTest {

@@ -1,6 +1,8 @@
 package cmput402.tdd;
 
 
+import cmput402.tdd.game.Game;
+
 public class User {
 
 
