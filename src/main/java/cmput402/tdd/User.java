@@ -12,16 +12,18 @@ public class User {
     }
 
     public int getBalance() {
-        return 0;
+        return this.balance;
     }
 
     public void addBalance(int addition) {
+        this.balance += addition;
     }
 
     public Game getCurrentGame() {
-        return null;
+        return currentGame;
     }
 
-    public void setCurrentGame(Game currentGame) {
+    public void setCurrentGame(Game nextGame) {
+        this.currentGame = nextGame;
     }
 }
