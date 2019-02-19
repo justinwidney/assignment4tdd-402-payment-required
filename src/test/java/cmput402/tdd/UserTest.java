@@ -36,7 +36,6 @@ public class UserTest {
 
     @Test
     public void userCantBetMoreThaTheyHave() {
-        Game game = mock(Game.class);
         User user = new User();
         user.addBalance(10);
         assertFalse(user.placeBet(20));

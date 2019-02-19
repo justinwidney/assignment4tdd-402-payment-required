@@ -9,11 +9,13 @@ import static org.mockito.Mockito.mock;
 public class GameTest {
 
     @Test
-    public void testAddBalanceToUser() {
+    public void testWinBet() {
         User user = new User();
         Game game = mock(Game.class);
-        game.giveBalance(user, 100);
-        assertEquals(user.getBalance(), 100);
+        user.addBalance(100);
+        game.placeBet(user, 100);
+        game.winBet(user);
+        assertEquals(user.getBalance(), 200);
     }
 
     @Test

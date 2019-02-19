@@ -8,7 +8,7 @@ public abstract class Game {
 
     abstract public void playGame();
 
-    public final void giveBalance(User user, int amount) {
+    public final void winBet(User user) {
     }
 
     public final boolean placeBet(User user, int amount) {
