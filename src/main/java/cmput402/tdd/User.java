@@ -28,4 +28,8 @@ public class User {
     public void setCurrentGame(Game nextGame) {
         this.currentGame = nextGame;
     }
+
+    public boolean placeBet(int amount) {
+        return true;
+    }
 }
