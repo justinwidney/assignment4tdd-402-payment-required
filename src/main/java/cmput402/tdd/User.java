@@ -30,6 +30,10 @@ public class User {
     }
 
     public boolean placeBet(int amount) {
+        if (amount > this.balance) {
+            return false;
+        }
+        this.balance -= amount;
         return true;
     }
 }

@@ -16,6 +16,7 @@ public class GameTest {
         game.placeBet(user, 100);
         game.winBet(user);
         assertEquals(user.getBalance(), 200);
+        assertEquals(game.getBet(), 0);
     }
 
     @Test

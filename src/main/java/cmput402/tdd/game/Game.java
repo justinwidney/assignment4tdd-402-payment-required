@@ -9,13 +9,20 @@ public abstract class Game {
     abstract public void playGame();
 
     public final void winBet(User user) {
+        user.addBalance(this.currentBet * 2);
+        this.currentBet = 0;
     }
 
     public final boolean placeBet(User user, int amount) {
-        return true;
+        boolean returnValue = user.placeBet(amount);
+        if (returnValue) {
+            currentBet = amount;
+        }
+
+        return returnValue;
     }
 
     public final int getBet() {
-        return 0;
+        return currentBet;
     }
 }
