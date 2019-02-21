@@ -1,5 +1,6 @@
 package cmput402.tdd.game;
 
+import cmput402.tdd.game.BlackJackGame;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,20 +15,19 @@ public class BlackJackGameTest{
 	@Test
 	public void testDrawCard(){
 		ArrayList<Integer> fakeHand = new ArrayList<Integer>();
-		fakeHand.add(4);
-		fakeHand.add(7);
 
-		BlackJackGame mockGame = mock(BlackJackGame.class);
-		when(mockGame.getHand()).thenReturn(fakeHand);
+		BlackJackGame game = new BlackJackGame();
 
-		mockGame.drawCard();
+		game.addCard(4);
+		game.addCard(7);
+		game.drawCard();
+		fakeHand = game.getHand();
 
 		assert(fakeHand.get(0) == 4);
 		assert(fakeHand.get(1) == 7);
 		assert(fakeHand.size() == 3);
 		assert(fakeHand.get(2) > 0);
 		assert(fakeHand.get(2) < 10);
-		verify(mockGame).getHand();
 	}
 
 	@Test
