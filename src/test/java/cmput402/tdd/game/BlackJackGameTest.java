@@ -58,21 +58,22 @@ public class BlackJackGameTest{
 	public void testStartingHand(){
 		BlackJackGame game = new BlackJackGame();
 		ArrayList<Integer> fakeHand = new ArrayList<Integer>();
+		game.resetHand();
 		fakeHand = game.getHand();
-		assert(fakeHand.size() == 0);
+		assert(fakeHand.size() == 2);
 	}
 
 	@Test
 	public void testRestartHand(){
 		BlackJackGame game = new BlackJackGame();
-	
-		assert(game.getHand().size() == 0);
+		game.resetHand();
+		assert(game.getHand().size() == 2);
 
 		game.addCard(3);
-		assert(game.getHand().size() == 1);
+		assert(game.getHand().size() == 3);
 
 		game.resetHand();
-		assert(game.getHand().size() == 0);
+		assert(game.getHand().size() == 2);
 	}
 
 	@Test

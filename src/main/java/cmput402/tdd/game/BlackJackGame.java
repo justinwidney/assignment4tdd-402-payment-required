@@ -4,27 +4,29 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class BlackJackGame extends Game{
-	ArrayList<Integer> values=new ArrayList<Integer>();
+	ArrayList<Integer> playerHand = new ArrayList<Integer>();
 
 	public void playGame(){
 	}
 
 	public ArrayList<Integer> getHand(){
-		return values;
+		return playerHand;
 	}
 
 	public void addCard(int card){
-		values.add(card);
+		playerHand.add(card);
 	}
 
 	public void drawCard(){
 		Random rand = new Random();
 		int newCard = rand.nextInt(10)+1; // Returns 1-10
-		values.add(newCard);
+		playerHand.add(newCard);
 	}
 
 	public void resetHand(){
-		values=new ArrayList<Integer>();
+		playerHand = new ArrayList<Integer>();
+		drawCard();
+		drawCard();
 	}
 
 	public int getDealerHand(){
@@ -35,11 +37,11 @@ public class BlackJackGame extends Game{
 
 	public int compareHands(){
 		int totalValue = 0;
-		for(int i=0; i<values.size();i++){
-			totalValue += values.get(i);
+		for(int i=0; i<playerHand.size();i++){
+			totalValue += playerHand.get(i);
 		}
 		int dealerHand = getDealerHand();
-		if(totalValue > 21){
+		if(totalValue > 21){	// Bust
 			return -1;
 		}
 		if(totalValue > dealerHand){
