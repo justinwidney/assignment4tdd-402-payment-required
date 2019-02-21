@@ -24,13 +24,27 @@ public class BlackJackGame extends Game{
 	}
 
 	public void resetHand(){
+		values=new ArrayList<Integer>();
 	}
 
 	public int getDealerHand(){
-		return 0;
+		Random rand = new Random();
+		int totalValue = rand.nextInt(6)+15; // Returns 15-21
+		return totalValue;
 	}
 
 	public int compareHands(){
-		return 0;
+		int totalValue = 0;
+		for(int i=0; i<values.size();i++){
+			totalValue += values.get(i);
+		}
+		int dealerHand = getDealerHand();
+		if(totalValue > dealerHand){
+			return 1;
+		}
+		if(totalValue < dealerHand){
+			return -1;
+		}
+		return 0;	//Tie
 	}
 }

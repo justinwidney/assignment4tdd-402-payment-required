@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.spy;
 
 import java.util.ArrayList;
 
@@ -48,36 +49,40 @@ public class BlackJackGameTest{
 		assert(game.getHand().size() == 1);
 
 		game.resetHand();
-//		assert(game.getHand().size() == 0);
+		assert(game.getHand().size() == 0);
 	}
 
 	@Test
 	public void testWinCompareHands(){
-		BlackJackGame game = mock(BlackJackGame.class);
-		game.addCard(8);
+		BlackJackGame game = spy(new BlackJackGame());
 		game.addCard(10);
+		game.addCard(8);
 		when(game.getDealerHand()).thenReturn(17);
 		int winner = game.compareHands();
+		verify(game).getDealerHand();
 		assert(winner == 1);
 	}
 
 	@Test
 	public void testTieCompareHands(){
-		BlackJackGame game = mock(BlackJackGame.class);
-		game.addCard(7);
+		BlackJackGame game = spy(new BlackJackGame());
 		game.addCard(10);
+		game.addCard(7);
 		when(game.getDealerHand()).thenReturn(17);
 		int winner = game.compareHands();
+		verify(game).getDealerHand();
 		assert(winner == 0);
 	}
 
 	@Test
 	public void testLoseCompareHands(){
-		BlackJackGame game = mock(BlackJackGame.class);
-		game.addCard(6);
+		BlackJackGame game = spy(new BlackJackGame());
 		game.addCard(10);
+		game.addCard(6);
 		when(game.getDealerHand()).thenReturn(17);
 		int winner = game.compareHands();
+		verify(game).getDealerHand();
 		assert(winner == -1);
 	}
+
 }
