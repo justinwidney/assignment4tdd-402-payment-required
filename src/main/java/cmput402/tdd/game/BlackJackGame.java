@@ -39,6 +39,9 @@ public class BlackJackGame extends Game{
 			totalValue += values.get(i);
 		}
 		int dealerHand = getDealerHand();
+		if(totalValue > 21){
+			return -1;
+		}
 		if(totalValue > dealerHand){
 			return 1;
 		}
