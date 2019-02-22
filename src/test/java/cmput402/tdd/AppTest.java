@@ -67,9 +67,11 @@ public class AppTest
     }
 
     public void testPlayButLeave(){
-	String input = "2";
-	// Set next 3 inputs to all be 2
+	String input = "1";
 	System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+	// Set next 2 inputs to all be 2
+	input = "2";
 	System.setIn(new ByteArrayInputStream(input.getBytes()));
 	System.setIn(new ByteArrayInputStream(input.getBytes()));
 
