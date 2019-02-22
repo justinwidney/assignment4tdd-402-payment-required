@@ -124,7 +124,7 @@ public class BlackJackGameTest{
 	}
 	
 	@Test
-    	public void testPlayGameStay(){
+    	public void testPlayGameStayAndWin(){
 		String input = "2";
 		System.setIn(new ByteArrayInputStream(input.getBytes()));
 
@@ -136,6 +136,20 @@ public class BlackJackGameTest{
 
 		game.playGame();
 	}
+
+	@Test
+    	public void testPlayGameStayAndTie(){
+		String input = "2";
+		System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+		BlackJackGame game = spy(new BlackJackGame());
+		game.addCard(10);
+		game.addCard(7);
+		when(game.getDealerHand()).thenReturn(17);
+
+		game.playGame();
+	}
+
 
 	@Test
     	public void testPlayGameDrawOver21(){
