@@ -65,4 +65,15 @@ public class AppTest
 	String[] args = {};
 	App.main(args);
     }
+
+    public void testPlayButLeave(){
+	String input = "2";
+	// Set next 3 inputs to all be 2
+	System.setIn(new ByteArrayInputStream(input.getBytes()));
+	System.setIn(new ByteArrayInputStream(input.getBytes()));
+	System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+	String[] args = {};
+	App.main(args);
+    }
 }
