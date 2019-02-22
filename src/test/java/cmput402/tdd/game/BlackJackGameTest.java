@@ -64,6 +64,18 @@ public class BlackJackGameTest{
 	}
 
 	@Test
+	public void testGetTotalHandValue(){
+		BlackJackGame game = new BlackJackGame();
+
+		game.addCard(10);
+		game.addCard(9);
+		game.addCard(2);
+		int totalHandValue = game.getTotalHandValue();
+
+		assert(totalHandValue == 21);
+	}
+
+	@Test
 	public void testRestartHand(){
 		BlackJackGame game = new BlackJackGame();
 		game.resetHand();

@@ -12,6 +12,10 @@ public class BlackJackGame extends Game{
 	public ArrayList<Integer> getHand(){
 		return playerHand;
 	}
+	
+	public int getTotalHandValue(){
+		return 0;
+	}
 
 	public void addCard(int card){
 		playerHand.add(card);
