@@ -3,11 +3,13 @@ package cmput402.tdd;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.anyString;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import cmput402.tdd.service.Search;
+import cmput402.tdd.App;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -41,8 +43,14 @@ public class AppTest
     public void testGetUserInput() {
     	IntegerAsker asker = mock(IntegerAsker.class);
 	when(asker.ask(anyString())).thenReturn(2);
-
-	assertEquals(getUserInput(asker), 2);
+	assertEquals(App.getUserInput(asker), 2);
     }
-    
+   
+    public void testPromptUser() {
+	    App app = new App();
+	    User user = mock(User.class);
+	    when(user.getBalance()).thenReturn(50);
+	    app.promptUser(user);
+	    verify(user).getBalance();
+    }
 }

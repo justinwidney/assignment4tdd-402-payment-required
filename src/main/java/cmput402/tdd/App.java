@@ -18,8 +18,8 @@ public class App
 	boolean playing = true;
 	
 	while(playing){
-		userSelection = promptUser();
-	
+		promptUser(user);
+		userSelection = getUserInput(new IntegerAsker(System.in, System.out));
 		if(userSelection == 1){
 			BlackJackGame game = new BlackJackGame();
 //			game.play();
@@ -32,20 +32,19 @@ public class App
 	System.out.println("Have a great day! You left with " + user.getBalance() + " gp.");
     }
 
-    public static int promptUser(){
-	int userSelection = 0;
-	while (userSelection == 0){
-		System.out.println("Welcome to the Scarlet Gate Casino! \nYour goal is to acquire as much wealth as possible!");
-		System.out.println("Your current wealth:" + user.getBalance() + " gp");
-		System.out.println("\nChoose a game to play:");
-		System.out.println("1: BlackJack");
-		System.out.println("2: Exit");
-		
-		Scanner input = new Scanner(System.in);
-		if(input.hasNextInt()){
-			userSelection = input.nextInt();
-		}
-	}
-	return userSelection;
+    public static void promptUser(User user){
+	System.out.println("Welcome to the Scarlet Gate Casino! \nYour goal is to acquire as much wealth as possible!");
+	System.out.println("Your current wealth:" + user.getBalance() + " gp");
+	System.out.println("\nChoose a game to play:");
+	System.out.println("1: BlackJack");
+	System.out.println("2: Exit");
+    }
+
+    public static int getUserInput(IntegerAsker asker){
+	    int input = asker.ask("");
+	    while (input < 1 || input > 2){
+		    input = asker.ask("");
+	    }
+	    return input;
     }
 }
