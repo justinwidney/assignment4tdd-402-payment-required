@@ -38,9 +38,11 @@ public class AppTest
         return new TestSuite( AppTest.class );
     }
 
-    public void testSample() {
-    	
-    	assert(2==2);
+    public void testGetUserInput() {
+    	IntegerAsker asker = mock(IntegerAsker.class);
+	when(asker.ask(anyString())).thenReturn(2);
+
+	assertEquals(getUserInput(asker), 2);
     }
     
 }
