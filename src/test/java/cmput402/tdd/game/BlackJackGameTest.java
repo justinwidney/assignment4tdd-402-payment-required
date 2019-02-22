@@ -3,6 +3,8 @@ package cmput402.tdd.game;
 import cmput402.tdd.game.BlackJackGame;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -119,6 +121,34 @@ public class BlackJackGameTest{
 		int winner = game.compareHands();
 		verify(game).getDealerHand();
 		assert(winner == -1);
+	}
+	
+	@Test
+    	public void testPlayGameStay(){
+		String input = "2";
+		System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+		BlackJackGame game = spy(new BlackJackGame());
+		game.addCard(10);
+		game.addCard(6);
+		game.addCard(5);
+		when(game.getDealerHand()).thenReturn(17);
+
+		game.playGame();
+	}
+
+	@Test
+    	public void testPlayGameDrawOver21(){
+		String input = "1";
+		System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+		BlackJackGame game = spy(new BlackJackGame());
+		game.addCard(10);
+		game.addCard(6);
+		game.addCard(5);
+		when(game.getDealerHand()).thenReturn(17);
+
+		game.playGame();
 	}
 
 }

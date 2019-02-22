@@ -9,7 +9,7 @@ import cmput402.tdd.game.*;
  */
 public class App 
 {
-	static User user;
+    static User user;
     public static void main( String[] args )
     {
 	user = new User();
@@ -22,7 +22,7 @@ public class App
 		userSelection = getUserInput(new IntegerAsker(System.in, System.out));
 		if(userSelection == 1){
 			BlackJackGame game = new BlackJackGame();
-//			game.play();
+			game.playGame();
 		}
 	
 		if(userSelection == 2){

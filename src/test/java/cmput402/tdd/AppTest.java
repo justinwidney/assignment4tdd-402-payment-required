@@ -6,8 +6,6 @@ import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.anyString;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import java.util.ArrayList;
 import java.util.HashMap;

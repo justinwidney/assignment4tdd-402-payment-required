@@ -19,6 +19,7 @@ public class BlackJackGame extends Game{
 				playerCardsString += playerHand.get(i) + " ";
 			}
 			System.out.println("Current hand:" + playerCardsString);
+			System.out.println("Total: " + getTotalHandValue());
 			System.out.println("1: Draw a card");
 			System.out.println("2: Stay");
 			userSelection = App.getUserInput(new IntegerAsker(System.in, System.out));
