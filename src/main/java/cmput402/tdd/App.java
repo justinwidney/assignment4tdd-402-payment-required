@@ -41,9 +41,9 @@ public class App
     }
 
     public static int getUserInput(IntegerAsker asker){
-	    int input = asker.ask("");
+	    int input = asker.ask("Enter 1-2");
 	    while (input < 1 || input > 2){
-		    input = asker.ask("");
+		    input = asker.ask("Only 1 or 2 is accepted");
 	    }
 	    return input;
     }

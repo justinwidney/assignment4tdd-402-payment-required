@@ -5,6 +5,10 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.anyString;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -42,15 +46,25 @@ public class AppTest
 
     public void testGetUserInput() {
     	IntegerAsker asker = mock(IntegerAsker.class);
-	when(asker.ask(anyString())).thenReturn(2);
+	when(asker.ask("Enter 1-2")).thenReturn(3);
+	when(asker.ask("Only 1 or 2 is accepted")).thenReturn(2);
 	assertEquals(App.getUserInput(asker), 2);
+	verify(asker).ask("Only 1 or 2 is accepted");
     }
    
     public void testPromptUser() {
-	    App app = new App();
-	    User user = mock(User.class);
-	    when(user.getBalance()).thenReturn(50);
-	    app.promptUser(user);
-	    verify(user).getBalance();
+	App app = new App();
+	User user = mock(User.class);
+	when(user.getBalance()).thenReturn(50);
+	app.promptUser(user);
+	verify(user).getBalance();
+    }
+
+    public void testMainExit(){
+	String input = "2";
+	System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+	String[] args = {};
+	App.main(args);
     }
 }
