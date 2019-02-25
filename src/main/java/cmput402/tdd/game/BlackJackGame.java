@@ -131,7 +131,7 @@ public class BlackJackGame extends Game{
 
 
 
-		while ((getDealerHand() < totalValue) && (totalValue < 22)){
+		while ((getDealerHand() < totalValue) && (totalValue < 22) && (dealerValue < 17)){
 			dealerValue = dealerDrawCard();
 
 		}
