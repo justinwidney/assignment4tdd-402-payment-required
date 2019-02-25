@@ -34,6 +34,28 @@ public class DeckTest {
 
     }
 
+
+    @Test
+
+    public void testCardNumber(){
+        Deck new_deck = new Deck();
+
+        Card tempCard;
+
+
+        for (int i = 0; i < 52; i++){
+
+
+            tempCard = new_deck.drawCard();
+
+            System.out.println(tempCard.retunCardNumber());
+            assertTrue(tempCard.retunCardNumber() > 0);
+            assertTrue(tempCard.retunCardNumber() < 14);
+
+        }
+    }
+
+
     @Test
 
     public void testUniqueCard(){

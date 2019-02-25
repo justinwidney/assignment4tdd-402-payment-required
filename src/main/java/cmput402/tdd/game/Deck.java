@@ -28,7 +28,7 @@ public class Deck {
         for (int x = 0; x < 4; x++) {
             for (int i = 0; i < 13; i++) {
 
-                Card temp_card = new Card(i);
+                Card temp_card = new Card(i+1);
                 this.deck[y] = temp_card;
                 y++;
             }
