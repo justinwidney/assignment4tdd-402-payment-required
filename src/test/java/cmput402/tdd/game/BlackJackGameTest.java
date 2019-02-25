@@ -65,6 +65,31 @@ public class BlackJackGameTest{
 	}
 
 	@Test
+	public void testDealerDraws(){
+		ArrayList<Card> fakeHand = new ArrayList<Card>();
+
+		BlackJackGame game = new BlackJackGame();
+		game.user = new User();
+
+
+		Card card_ten = new Card(10);
+		Card card_nine = new Card(9);
+		Card card_two = new Card(2);
+
+
+		game.addCard(card_ten);
+		game.addCard(card_nine);
+
+
+
+
+
+		int winner = game.compareHands();
+		assert(game.getDealerHand() > game.getTotalHandValue() || game.getDealerHand() > 21);
+
+	}
+
+	@Test
 	public void testStartingHand(){
 		BlackJackGame game = new BlackJackGame();
 		ArrayList<Card> fakeHand = new ArrayList<Card>();

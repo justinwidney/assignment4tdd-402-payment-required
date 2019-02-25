@@ -8,6 +8,8 @@ import java.util.Random;
 
 public class BlackJackGame extends Game{
 	ArrayList<Card> playerHand = new ArrayList<Card>();
+	ArrayList<Card> dealerHand = new ArrayList<Card>();
+
 	int winner = 0;
 
 	Deck deck = new Deck();
@@ -75,6 +77,8 @@ public class BlackJackGame extends Game{
 		playerHand.add(deck.drawCard());
 	}
 
+
+
 	public void resetHand(){
 		playerHand = new ArrayList<Card>();
 		drawCard();
@@ -82,8 +86,10 @@ public class BlackJackGame extends Game{
 	}
 
 	public int getDealerHand(){
-		Random rand = new Random();
-		int totalValue = rand.nextInt(6)+15; // Returns 15-21
+
+		int totalValue = deck.drawCard().retunCardNumber() + deck.drawCard().retunCardNumber();
+		//Random rand = new Random();
+		//int totalValue = rand.nextInt(6)+15; // Returns 15-21
 		return totalValue;
 	}
 

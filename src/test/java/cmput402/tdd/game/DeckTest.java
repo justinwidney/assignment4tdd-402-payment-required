@@ -47,8 +47,6 @@ public class DeckTest {
 
 
             tempCard = new_deck.drawCard();
-
-            System.out.println(tempCard.retunCardNumber());
             assertTrue(tempCard.retunCardNumber() > 0);
             assertTrue(tempCard.retunCardNumber() < 14);
 
