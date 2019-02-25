@@ -1,7 +1,6 @@
 package cmput402.tdd;
 
-import java.util.Scanner;
-import cmput402.tdd.game.*;
+import cmput402.tdd.game.BlackJackGame;
 
 /**
  * Hello world!
@@ -47,4 +46,8 @@ public class App
 	    }
 	    return input;
     }
+
+	public static int getUserBet(IntegerAsker asker) {
+		return 0;
+	}
 }

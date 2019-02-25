@@ -1,20 +1,12 @@
 package cmput402.tdd;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.anyString;
-
-import java.io.ByteArrayInputStream;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import cmput402.tdd.service.Search;
-import cmput402.tdd.App;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
+import java.io.ByteArrayInputStream;
+
+import static org.mockito.Mockito.*;
 
 /**
  * Unit test for simple App.
@@ -64,6 +56,12 @@ public class AppTest
 
 	String[] args = {};
 	App.main(args);
+    }
+
+    public void testGetUserBet() {
+        IntegerAsker asker = mock(IntegerAsker.class);
+        when(asker.ask("Enter a bet")).thenReturn(50);
+        assertEquals(App.getUserBet(asker), 50);
     }
 
 }

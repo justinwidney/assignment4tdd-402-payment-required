@@ -25,4 +25,8 @@ public abstract class Game {
     public final int getBet() {
         return currentBet;
     }
+
+    public final void promptBet() {
+
+    }
 }
