@@ -72,22 +72,23 @@ public class BlackJackGameTest{
 		game.user = new User();
 
 
-		Card card_ten = new Card(11);
-		Card card_nine = new Card(10);
+		Card card_queen = new Card(11);
+		Card card_jack = new Card(10);
 
 
 
-		game.addCard(card_ten);
-		game.addCard(card_nine);
+		game.addCard(card_queen);
+		game.addCard(card_jack);
 
-
+		game.addDealerCard(card_queen);
+		game.addDealerCard(new Card(8));
 
 
 
 		int winner = game.compareHands();
 
 
-		if(winner ==1) {
+		if(winner == 1) {
 			assert (game.getDealerHand() > 21);
 		}
 		else{
