@@ -17,7 +17,7 @@ public class Card {
     // constructor method
     public Card (int number){
 
-        this.cardNumber  =0;
+        this.cardNumber  = number;
 
 
     }
@@ -28,7 +28,8 @@ public class Card {
     public int retunCardNumber(){
 
 
-       return 0;
+       return this.cardNumber;
+
     }
 
 }
