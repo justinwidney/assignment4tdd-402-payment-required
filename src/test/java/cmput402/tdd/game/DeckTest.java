@@ -18,19 +18,17 @@ public class DeckTest {
 
 
 
+
     @Test
-    public void testCreateDeck() {
+    public void testDeck() {
 
 
         Deck new_deck = new Deck();
-
-
-
         Card new_card = new_deck.drawCard();
 
-
-
-        assertFalse(new_card.retunCardNumber() == 0);
+        for (int i = 0; i < 52; i++){
+            assertFalse(new_card.retunCardNumber() == 0);
+        }
 
     }
 
