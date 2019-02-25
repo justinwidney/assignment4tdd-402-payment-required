@@ -12,6 +12,8 @@ public class BlackJackGame extends Game{
 
 	int winner = 0;
 
+	int dealerValue = 0;
+
 	Deck deck = new Deck();
 
 	public void playGame(){
@@ -87,24 +89,42 @@ public class BlackJackGame extends Game{
 
 	public int getDealerHand(){
 
-		int totalValue = deck.drawCard().retunCardNumber() + deck.drawCard().retunCardNumber();
+		dealerValue = deck.drawCard().retunCardNumber() + deck.drawCard().retunCardNumber();
+
+
 		//Random rand = new Random();
 		//int totalValue = rand.nextInt(6)+15; // Returns 15-21
-		return totalValue;
+		return dealerValue;
+	}
+
+	public int getDealerHandValue(){
+
+		return dealerValue;
 	}
 
 	public int compareHands(){
 		int totalValue = getTotalHandValue();
-		int dealerHand = getDealerHand();
+
+		while (getDealerHandValue() < totalValue){
+			dealerValue = dealerValue + deck.drawCard().retunCardNumber();
+
+		}
+
+		int dealerHand = dealerValue;
+
+
 		System.out.println("Your hand: " + totalValue);
 		System.out.println("Dealer's hand: " + dealerHand);
 		if(totalValue > 21){	// Bust
 			return -1;
 		}
-		if(totalValue > dealerHand){
+		else if( dealerHand > 21){
 			return 1;
 		}
-		if(totalValue < dealerHand){
+		else if(totalValue > dealerHand ){
+			return 1;
+		}
+		else if(totalValue < dealerHand){
 			return -1;
 		}
 		return 0;	//Tie
