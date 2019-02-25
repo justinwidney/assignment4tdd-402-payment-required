@@ -9,10 +9,6 @@ public class Card {
 
 
 
-    public enum number {
-        ace, two, three, four, five, six, seven, eight, nine, jack, queen, king
-    }
-
 
     // constructor method
     public Card (int number){

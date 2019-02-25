@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class BlackJackGame extends Game{
-	ArrayList<Integer> playerHand = new ArrayList<Integer>();
+	ArrayList<Card> playerHand = new ArrayList<Card>();
 	int winner = 0;
+
+	Deck deck = new Deck();
 
 	public void playGame(){
 		boolean playing = true;
@@ -16,7 +18,7 @@ public class BlackJackGame extends Game{
 		while(playing){	
 			String playerCardsString = "";
 			for(int i = 0; i<playerHand.size(); i++){
-				playerCardsString += playerHand.get(i) + " ";
+				playerCardsString += playerHand.get(i).retunCardNumber() + " ";
 			}
 			System.out.println("Current hand:" + playerCardsString);
 			System.out.println("Total: " + getTotalHandValue());
@@ -47,30 +49,34 @@ public class BlackJackGame extends Game{
 		}
 	}
 
-	public ArrayList<Integer> getHand(){
+	public ArrayList<Card> getHand(){
 		return playerHand;
 	}
 	
 	public int getTotalHandValue(){
 		int totalValue = 0;
 		for(int i = 0; i < playerHand.size();i++){
-			totalValue += playerHand.get(i);
+			totalValue += playerHand.get(i).retunCardNumber();
 		}
 		return totalValue;
 	}
 
-	public void addCard(int card){
+	public void addCard(Card card){
+
 		playerHand.add(card);
+
 	}
 
 	public void drawCard(){
-		Random rand = new Random();
-		int newCard = rand.nextInt(10)+1; // Returns 1-10
-		playerHand.add(newCard);
+		//Random rand = new Random();
+		//int newCard = rand.nextInt(10)+1; // Returns 1-10
+		//playerHand.add(newCard);
+
+		playerHand.add(deck.drawCard());
 	}
 
 	public void resetHand(){
-		playerHand = new ArrayList<Integer>();
+		playerHand = new ArrayList<Card>();
 		drawCard();
 		drawCard();
 	}
