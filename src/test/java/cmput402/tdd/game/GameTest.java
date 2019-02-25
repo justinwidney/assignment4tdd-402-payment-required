@@ -67,4 +67,19 @@ public class GameTest {
         int bet = game.getBet();
         assertEquals(bet, 50);
     }
+
+    @Test
+    public void testInvalidPromptBet() {
+        User user = new User();
+        user.addBalance(100);
+        App app = new App();
+        Game game = mock(Game.class);
+        game.user = user;
+        String input = "-100\n10";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        game.promptBet();
+        int bet = game.getBet();
+        assertEquals(bet, 10);
+
+    }
 }
