@@ -19,7 +19,7 @@ public class BlackJackGame extends Game{
 	public void playGame(){
 		boolean playing = true;
 		int userSelection;
-		while(playing){	
+		while(playing){
 			String playerCardsString = "";
 			for(int i = 0; i<playerHand.size(); i++){
 				playerCardsString += playerHand.get(i).retunCardNumber() + " ";
@@ -56,7 +56,7 @@ public class BlackJackGame extends Game{
 	public ArrayList<Card> getHand(){
 		return playerHand;
 	}
-	
+
 	public int getTotalHandValue(){
 		int totalValue = 0;
 		for(int i = 0; i < playerHand.size();i++){
@@ -89,24 +89,32 @@ public class BlackJackGame extends Game{
 
 	public int getDealerHand(){
 
-		dealerValue = deck.drawCard().retunCardNumber() + deck.drawCard().retunCardNumber();
-
+		//dealerValue = deck.drawCard().retunCardNumber() + deck.drawCard().retunCardNumber();
 
 		//Random rand = new Random();
 		//int totalValue = rand.nextInt(6)+15; // Returns 15-21
 		return dealerValue;
 	}
 
-	public int getDealerHandValue(){
 
-		return dealerValue;
+	public void dealerDrawsHand(){
+
+		dealerValue = deck.drawCard().retunCardNumber() + deck.drawCard().retunCardNumber();
+
+		return
+	}
+	public int dealerDrawCard(){
+
+		return dealerValue = deck.drawCard();
 	}
 
 	public int compareHands(){
+
 		int totalValue = getTotalHandValue();
+		dealerDrawsHand();
 
 		while (getDealerHandValue() < totalValue){
-			dealerValue = dealerValue + deck.drawCard().retunCardNumber();
+			dealerValue = dealerDrawCard();
 
 		}
 

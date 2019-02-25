@@ -88,10 +88,10 @@ public class BlackJackGameTest{
 
 
 		if(winner ==1) {
-			assert (game.getDealerHandValue() > 21);
+			assert (game.getDealerHand() > 21);
 		}
 		else{
-			assert( game.getDealerHandValue() == 21);
+			assert( game.getDealerHand() == 21);
 		}
 
 	}
@@ -104,6 +104,8 @@ public class BlackJackGameTest{
 		fakeHand = game.getHand();
 		assert(fakeHand.size() == 2);
 	}
+
+
 
 	@Test
 	public void testGetTotalHandValue(){
@@ -138,7 +140,7 @@ public class BlackJackGameTest{
 		game.addCard(new Card(8));
 		when(game.getDealerHand()).thenReturn(17);
 		int winner = game.compareHands();
-		verify(game).getDealerHandValue();
+		verify(game).getDealerHand();
 		assert(winner == 1);
 	}
 
@@ -149,7 +151,7 @@ public class BlackJackGameTest{
 		game.addCard(new Card(7));
 		when(game.getDealerHand()).thenReturn(17);
 		int winner = game.compareHands();
-		verify(game).getDealerHandValue();
+		verify(game).getDealerHand();
 		assert(winner == 0);
 	}
 
@@ -160,7 +162,7 @@ public class BlackJackGameTest{
 		game.addCard(new Card(6));
 		when(game.getDealerHand()).thenReturn(17);
 		int winner = game.compareHands();
-		verify(game).getDealerHandValue();
+		verify(game).getDealerHand();
 		assert(winner == -1);
 	}
 
