@@ -132,23 +132,34 @@ public class BlackJackGameTest{
 		assert(game.getHand().size() == 2);
 	}
 
+	/* Void now that dealer draws
 	@Test
 	public void testWinCompareHands(){
 		BlackJackGame game = spy(new BlackJackGame());
 		game.user = new User();
 		game.addCard(new Card(10));
 		game.addCard(new Card(8));
+
+		game.addDealerCard(new Card(10));
+		game.addDealerCard(new Card(7));
+
+
 		when(game.getDealerHand()).thenReturn(17);
 		int winner = game.compareHands();
 		verify(game).getDealerHand();
 		assert(winner == 1);
 	}
+	*/
 
 	@Test
 	public void testTieCompareHands(){
 		BlackJackGame game = spy(new BlackJackGame());
 		game.addCard(new Card(10));
 		game.addCard(new Card(7));
+
+		game.addDealerCard(new Card(10));
+		game.addDealerCard(new Card(7));
+
 		when(game.getDealerHand()).thenReturn(17);
 		int winner = game.compareHands();
 		verify(game).getDealerHand();
@@ -160,6 +171,11 @@ public class BlackJackGameTest{
 		BlackJackGame game = spy(new BlackJackGame());
 		game.addCard(new Card(10));
 		game.addCard(new Card(6));
+
+		game.addDealerCard(new Card(10));
+		game.addDealerCard(new Card(7));
+
+
 		when(game.getDealerHand()).thenReturn(17);
 		int winner = game.compareHands();
 		verify(game).getDealerHand();
@@ -176,7 +192,15 @@ public class BlackJackGameTest{
 		game.addCard(new Card(10));
 		game.addCard(new Card(6));
 		game.addCard(new Card(5));
+
+		game.addDealerCard(new Card(10));
+		game.addDealerCard(new Card(7));
+
 		when(game.getDealerHand()).thenReturn(17);
+
+		int winner = game.compareHands();
+		verify(game).getDealerHand();
+		assert(winner == 1);
 
 		game.playGame();
 	}
@@ -189,6 +213,11 @@ public class BlackJackGameTest{
 		BlackJackGame game = spy(new BlackJackGame());
 		game.addCard(new Card(10));
 		game.addCard(new Card(7));
+
+		game.addDealerCard(new Card(10));
+		game.addDealerCard(new Card(7));
+
+
 		when(game.getDealerHand()).thenReturn(17);
 
 		game.playGame();
@@ -204,6 +233,10 @@ public class BlackJackGameTest{
 		game.addCard(new Card(10));
 		game.addCard(new Card(6));
 		game.addCard(new Card(5));
+
+		game.addDealerCard(new Card(10));
+		game.addDealerCard(new Card(7));
+
 		when(game.getDealerHand()).thenReturn(17);
 
 		game.playGame();
