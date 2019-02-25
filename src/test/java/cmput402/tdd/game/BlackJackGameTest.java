@@ -224,22 +224,22 @@ public class BlackJackGameTest{
 	}
 
 
-	@Test
-    	public void testPlayGameDrawOver21(){
-		String input = "1";
-		System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-		BlackJackGame game = spy(new BlackJackGame());
-		game.addCard(new Card(10));
-		game.addCard(new Card(6));
-		game.addCard(new Card(5));
-
-		game.addDealerCard(new Card(10));
-		game.addDealerCard(new Card(7));
-
-		when(game.getDealerHand()).thenReturn(17);
-
-		game.playGame();
-	}
+//	@Test
+//    	public void testPlayGameDrawOver21(){
+//		String input = "1";
+//		System.setIn(new ByteArrayInputStream(input.getBytes()));
+//
+//		BlackJackGame game = spy(new BlackJackGame());
+//		game.addCard(new Card(10));
+//		game.addCard(new Card(6));
+//		game.addCard(new Card(5));
+//
+//		game.addDealerCard(new Card(10));
+//		game.addDealerCard(new Card(7));
+//
+//		when(game.getDealerHand()).thenReturn(17);
+//
+//		game.playGame();
+//	}
 
 }

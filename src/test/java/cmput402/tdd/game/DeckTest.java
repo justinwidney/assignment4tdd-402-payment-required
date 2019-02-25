@@ -67,7 +67,7 @@ public class DeckTest {
 
         for (int i = 0; i < 52; i++){
             tempCard = new_deck.drawCard();
-            totalCount[tempCard.retunCardNumber()]++;
+            totalCount[tempCard.retunCardNumber() - 1]++; // include 1 in 0 spot
         }
 
         for (int i = 0; i <13; i++){
