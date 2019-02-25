@@ -1,17 +1,12 @@
 package cmput402.tdd.game;
 
-import cmput402.tdd.game.BlackJackGame;
+import cmput402.tdd.User;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.spy;
-
 import java.util.ArrayList;
+
+import static org.mockito.Mockito.*;
 
 public class BlackJackGameTest{
 
@@ -38,6 +33,7 @@ public class BlackJackGameTest{
 		ArrayList<Integer> fakeHand = new ArrayList<Integer>();
 
 		BlackJackGame game = new BlackJackGame();
+		game.user = new User();
 
 		game.addCard(10);
 		game.addCard(9);
@@ -93,6 +89,7 @@ public class BlackJackGameTest{
 	@Test
 	public void testWinCompareHands(){
 		BlackJackGame game = spy(new BlackJackGame());
+		game.user = new User();
 		game.addCard(10);
 		game.addCard(8);
 		when(game.getDealerHand()).thenReturn(17);
@@ -129,6 +126,7 @@ public class BlackJackGameTest{
 		System.setIn(new ByteArrayInputStream(input.getBytes()));
 
 		BlackJackGame game = spy(new BlackJackGame());
+		game.user = new User();
 		game.addCard(10);
 		game.addCard(6);
 		game.addCard(5);

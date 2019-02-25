@@ -1,10 +1,10 @@
 package cmput402.tdd.game;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import cmput402.tdd.App;
 import cmput402.tdd.IntegerAsker;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class BlackJackGame extends Game{
 	ArrayList<Integer> playerHand = new ArrayList<Integer>();
@@ -36,6 +36,7 @@ public class BlackJackGame extends Game{
 			}
 		}
 		if(winner == 1){
+            this.winBet();
 			System.out.println("You won!");
 		}
 		if(winner == 0){

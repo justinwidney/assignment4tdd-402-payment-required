@@ -21,10 +21,15 @@ public class App
 		userSelection = getUserInput(new IntegerAsker(System.in, System.out));
 		if(userSelection == 1){
 			BlackJackGame game = new BlackJackGame();
+			game.user = user;
+			game.promptBet();
 			game.playGame();
 		}
 	
 		if(userSelection == 2){
+			playing = false;
+		}
+		if (user.getBalance() == 0) {
 			playing = false;
 		}
 	}
@@ -47,7 +52,12 @@ public class App
 	    return input;
     }
 
-	public static int getUserBet(IntegerAsker asker) {
-		return 0;
+	public static int getUserBet(IntegerAsker asker, User user) {
+		int input = asker.ask("Please enter a bet");
+		while (input < 0 || input > user.getBalance()) {
+			input = asker.ask("Please enter a number greater than 0 and less than your balance");
+		}
+		System.out.println(input);
+		return input;
 	}
 }

@@ -1,13 +1,13 @@
 package cmput402.tdd.game;
 
 import cmput402.tdd.App;
-import cmput402.tdd.IntegerAsker;
 import cmput402.tdd.User;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class GameTest {
 
@@ -16,9 +16,21 @@ public class GameTest {
         User user = new User();
         Game game = mock(Game.class);
         user.addBalance(100);
-        game.placeBet(user, 100);
-        game.winBet(user);
+        game.user = user;
+        game.placeBet(100);
+        game.winBet();
         assertEquals(user.getBalance(), 200);
+        assertEquals(game.getBet(), 0);
+    }
+
+    @Test
+    public void testLoseBet() {
+        User user = new User();
+        Game game = mock(Game.class);
+        user.addBalance(100);
+        game.user = user;
+        game.placeBet(100);
+        game.loseBet();
         assertEquals(game.getBet(), 0);
     }
 
@@ -27,7 +39,8 @@ public class GameTest {
         User user = new User();
         user.addBalance(100);
         Game game = mock(Game.class);
-        assertTrue(game.placeBet(user, 10));
+        game.user = user;
+        assertTrue(game.placeBet(10));
         assertEquals(game.getBet(), 10);
     }
 
@@ -36,7 +49,8 @@ public class GameTest {
         User user = new User();
         user.addBalance(10);
         Game game = mock(Game.class);
-        assertFalse(game.placeBet(user, 20));
+        game.user = user;
+        assertFalse(game.placeBet(20));
         assertEquals(game.getBet(), 0);
     }
 
@@ -46,8 +60,9 @@ public class GameTest {
         user.addBalance(100);
         App app = new App();
         Game game = mock(Game.class);
-        IntegerAsker asker = mock(IntegerAsker.class);
-        when(asker.ask("Enter a bet")).thenReturn(50);
+        game.user = user;
+        String input = "50";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
         game.promptBet();
         int bet = game.getBet();
         assertEquals(bet, 50);

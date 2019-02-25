@@ -60,8 +60,10 @@ public class AppTest
 
     public void testGetUserBet() {
         IntegerAsker asker = mock(IntegerAsker.class);
-        when(asker.ask("Enter a bet")).thenReturn(50);
-        assertEquals(App.getUserBet(asker), 50);
+        User user = new User();
+        user.addBalance(100);
+        when(asker.ask("Please enter a bet")).thenReturn(50);
+        assertEquals(App.getUserBet(asker, user), 50);
     }
 
 }
