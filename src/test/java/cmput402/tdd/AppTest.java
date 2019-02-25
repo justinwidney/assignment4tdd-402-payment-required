@@ -66,12 +66,5 @@ public class AppTest
         assertEquals(App.getUserBet(asker, user), 50);
     }
 
-    public void testInputGame1() {
-        String input = "1\n100\n2";
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-        String[] args = new String[]{};
-        App.main(args);
-        assertTrue("Main does not crash", true);
-    }
 
 }
